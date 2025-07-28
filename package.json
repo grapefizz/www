@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"private": true,
 	"engines": {
-		"node": ">=18.0.0"
+		"node": "20.x"
 	},
 	"scripts": {
 		"dev": "vite dev",
@@ -21,7 +21,6 @@
 		"@iconify-json/ph": "^1.2.2",
 		"@playwright/test": "^1.53.1",
 		"@shikijs/transformers": "^3.7.0",
-		"@sveltejs/adapter-static": "^3.0.8",
 		"@sveltejs/enhanced-img": "0.6.1",
 		"@sveltejs/kit": "^2.22.2",
 		"@sveltejs/vite-plugin-svelte": "^5.1.0",
