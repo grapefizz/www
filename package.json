@@ -40,6 +40,7 @@
 	"type": "module",
 	"dependencies": {
 		"@fontsource/space-mono": "5.1.x",
+		"@sveltejs/adapter-auto": "^6.0.1",
 		"embla-carousel-svelte": "^8.6.0",
 		"lottie-web": "^5.13.0"
 	}

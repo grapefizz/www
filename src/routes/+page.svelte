@@ -236,6 +236,7 @@
 		<div class="row">
 			<h1>grapefizz</h1>
 			<div class="svg-container" class:animated={animationComplete} bind:this={svgContainer} 
+				 role="img" aria-label="Interactive graph visualization"
 				 on:mouseenter={handleMouseEnter} on:mouseleave={handleMouseLeave}>
 				<svg width="160" height="120" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
 					<!-- Y-axis - draws from top to bottom -->

@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-auto';
 import { mdsvex, escapeSvelte } from 'mdsvex';
 import { codeToHtml } from 'shiki';
 import {
