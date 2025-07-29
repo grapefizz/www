@@ -49,7 +49,7 @@
 	<h3>contact form</h3>
 	<form onsubmit={handleSubmit}>
 		<input type="text" name="name" placeholder="name" required />
-		<input type="email" name="email" placeholder="email (if you want a reply)" required />
+		<input type="email" name="email" placeholder="email (if you want a reply)" />
 		<textarea name="message" placeholder="your message..." required rows="4"></textarea>
 		<button type="submit">{status}</button>
 	</form>
