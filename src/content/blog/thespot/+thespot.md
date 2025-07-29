@@ -22,9 +22,15 @@ Pretty neat eh? May not look like much, but on top of these *pillars* I've had s
 ## the view
 
 <style>
+  .video-row.reverse {
+    flex-direction: row-reverse;
+  }
   @media (max-width: 600px) {
     .video-row {
       display: block !important;
+    }
+    .video-row.reverse {
+      flex-direction: initial;
     }
   }
 </style>
@@ -42,6 +48,17 @@ Pretty neat eh? May not look like much, but on top of these *pillars* I've had s
   </div>
 </div>
 
-## why did I write this?
+<br>
 
-To be honest, I don't really know. I've never had a blog before and posting parts of my life feels so interesting. I've been making a habit of expressing myself more lately and this feels like the perfect way. With all that out of the way, thanks for reading :)
+<div class="video-row reverse" style="display: flex; align-items: flex-start; gap: 1rem;">
+  <video
+    src="/thespot2.mp4"
+    width="400"
+    controls
+    style="display:block;"
+  ></video>
+  <div>
+    <h2>why did I write this?</h2>
+    <p>To be honest, I don't really know. I've never had a blog before and posting parts of my life feels so interesting. I've been making a habit of expressing myself more lately and this feels like the perfect way. With all that out of the way, thanks for reading :)</p>
+  </div>
+</div>
