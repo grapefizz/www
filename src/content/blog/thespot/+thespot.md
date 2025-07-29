@@ -40,6 +40,7 @@ Pretty neat eh? May not look like much, but on top of these *pillars* I've had s
     width="400"
     controls
     style="display:block;"
+    preload="auto"
   ></video>
   <div>
     <p>Some of the views here are absolutely amazing, especially when the sun is setting. I don't know what it is about this place that I love so much. We've tried going to other places too but its just not the same. I'll never forget all the conversations, snacks and drinks that I've had here.</p><br>
@@ -56,6 +57,7 @@ Pretty neat eh? May not look like much, but on top of these *pillars* I've had s
     width="400"
     controls
     style="display:block;"
+    preload="auto"
   ></video>
   <div>
     <h2>why did I write this?</h2>
