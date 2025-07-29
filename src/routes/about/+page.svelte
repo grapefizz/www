@@ -2,6 +2,7 @@
 	import GithubIcon from '~icons/ph/github-logo';
 	import DiscordIcon from '~icons/ph/discord-logo';
 	import KofiIcon from '~icons/ph/coffee';
+	import InstagramIcon from '~icons/ph/instagram-logo';
 
 	let content = {
 		languages: {
@@ -25,6 +26,9 @@
 	</a>
 	<a href="https://discord.com/users/602127622528303114" class="external icon">
 		<DiscordIcon /><span class="text">discord</span><span class="arrow">/></span>
+	</a>
+		<a href="https://www.instagram.com/karakushiari" class="external icon">
+		<InstagramIcon /><span class="text">instagram</span><span class="arrow">/></span>
 	</a>
 	<a href="https://ko-fi.com/grapefizz" class="external icon">
 		<KofiIcon /><span class="text">ko-fi</span><span class="arrow">/></span>
