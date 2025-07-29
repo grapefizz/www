@@ -21,7 +21,14 @@ Pretty neat eh? May not look like much, but on top of these *pillars* I've had s
 
 ## the view
 
-<div style="display: flex; align-items: flex-start; gap: 1rem;">
+<style>
+  @media (max-width: 600px) {
+    .video-row {
+      display: block !important;
+    }
+  }
+</style>
+<div class="video-row" style="display: flex; align-items: flex-start; gap: 1rem;">
   <video
     src="/thespot.mp4"
     width="400"
