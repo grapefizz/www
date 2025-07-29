@@ -35,7 +35,6 @@
 		data-input-position="top"
 		data-theme="transparent_dark"
 		data-lang="en"
-		data-loading="lazy"
 		crossorigin="anonymous"
 		async>
 	</script>
