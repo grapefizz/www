@@ -12,7 +12,7 @@ date: 2025-07-28
     // Icons can be paper, globe, or code
 </script>
 
-Got a new job at a dental clinic working as a receptionist and as the dev of their dentail patient manager and things have been going pretty great. For the first time in my life I'm actually busy and finding free time with all the side projects i'm making is difficult.
+Got a new job at a dental clinic working as a receptionist and as the dev of their dental patient manager and things have been going pretty great. For the first time in my life I'm actually busy and finding free time with all the side projects i'm making is difficult.
 
 ## the real issue
 
