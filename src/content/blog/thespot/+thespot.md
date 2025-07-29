@@ -23,7 +23,7 @@ Pretty neat eh? May not look like much, but on top of these *pillars* I've had s
 
 <div style="display: flex; align-items: flex-start; gap: 1rem;">
   <video
-    src="/src/content/blog/thespot/thespot.mp4"
+    src="/thespot.mp4"
     width="400"
     controls
     style="display:block;"
