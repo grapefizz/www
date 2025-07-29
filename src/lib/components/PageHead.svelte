@@ -13,8 +13,8 @@
 	<meta property="og:description" content={description} />
 	<meta property="og:url" content={$page.url.href} />
 	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:site" content="@refact_r" />
-	<meta name="twitter:creator" content="@refact_r" />
+	<meta name="twitter:site" content="grapefizzdev" />
+	<meta name="twitter:creator" content="grapefizzdev" />
 	<meta name="twitter:title" content={title} />
 	<meta name="twitter:description" content={description} />
 	{#if image}
