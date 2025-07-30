@@ -28,7 +28,7 @@
 
 <main>
 	<h1>pics</h1>
-	<p>just some random photos. taken on an iPhone 12.</p>
+	<p>just some random photos. taken on my iphone 12 and iphone 16 pro max.</p>
 	<br />
 	{#each images as image}
 		<picture>

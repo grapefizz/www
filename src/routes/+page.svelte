@@ -271,7 +271,7 @@
 				</svg>
 			</div>
 		</div>
-		<p>heyo! i'm a highschool student interested in comp sci and stuff.</p>
+		<p>writting code 24/7 (it works <strong>sometimes</strong>)</p>
 		<nav>
 			<a class="nav" href="/about">
 				<span class="arrow">-></span><span class="slash">/</span>about
