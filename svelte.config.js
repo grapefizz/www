@@ -1,6 +1,6 @@
 import adapter from '@sveltejs/adapter-vercel';
 import { mdsvex, escapeSvelte } from 'mdsvex';
-import { codeToHtml } from 'shiki';
+import { codeToHtml } from 'shiki/bundle/full';
 import {
 	transformerNotationDiff,
 	transformerMetaHighlight,

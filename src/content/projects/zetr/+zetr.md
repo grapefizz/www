@@ -9,11 +9,11 @@ website:
 date: 2025-07-30   
 ---
 
-# ZETR - NES Emulator
+# zetr - nes emulator
 
 A Nintendo Entertainment System (NES) emulator written in Rust. Currently supports basic ROM loading and CHR data visualization.
 
-## Features
+## features
 
 - iNES ROM format support
 - Full 6502 CPU emulation with 80+ instructions
@@ -25,7 +25,7 @@ A Nintendo Entertainment System (NES) emulator written in Rust. Currently suppor
 - 60 FPS rendering with SDL2
 - Support for Donkey Kong and other NES games
 
-## Controls
+## controls
 
 - Arrow Keys: D-pad
 - Z: A button
@@ -34,7 +34,7 @@ A Nintendo Entertainment System (NES) emulator written in Rust. Currently suppor
 - S: Start
 - ESC: Quit
 
-## Building
+## building
 
 Requires SDL2 to be installed:
 
@@ -47,13 +47,13 @@ cargo build
 ./target/debug/zetr <rom_file>
 ```
 
-## Example
+## example
 
 ```bash
 ./target/debug/zetr donkeykong.nes
 ```
 
-## Current Status
+## current status
 
 This is a functional NES emulator capable of running Donkey Kong and other NES games. The emulator features:
 
@@ -62,14 +62,14 @@ This is a functional NES emulator capable of running Donkey Kong and other NES g
 - Real-time Emulation: Proper CPU/PPU timing synchronization
 - Game Controls: Full controller support for gameplay
 
-## Architecture
+## architecture
 
 - `cartridge.rs` - iNES ROM loading and memory mapping
 - `ppu.rs` - Picture Processing Unit with authentic rendering
 - `nes.rs` - 6502 CPU emulation and system coordination
 - `main.rs` - SDL2 windowing, input handling, and main loop
 
-## Future Improvements
+## future improvements
 
 - Sprite rendering and animation
 - Audio processing (APU)
