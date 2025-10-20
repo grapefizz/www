@@ -18,7 +18,7 @@
 <main>
 	<h1>about</h1>
 	<p>
-		heyo! i'm ari but i go by grapefizz online. i'm a sophmore highschool student in kosovo who is interested in coding, pixel art, 3d modeling, urbex, mtb, snowboarding and swimming.
+		heyo! i'm Ari but i go by grapefizz online. i'm a sophmore highschool student in Kosovo who is interested in coding, pixel art, 3d modeling, urbex, mtb, snowboarding and swimming.
 	</p>
 	<h2>links</h2>
 	<a href="https://github.com/grapefizz" class="external icon" target="_blank" rel="noopener">
