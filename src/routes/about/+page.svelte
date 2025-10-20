@@ -103,24 +103,6 @@
 		font-family: 'Space Mono', monospace;
 	}
 
-	.webring {
-		display: inline-block;
-		margin: 0;
-		span {
-			display: inline-block;
-			transition: 0.2s;
-		}
-		&.home:hover {
-			text-decoration: underline 2px;
-		}
-		&.next:hover span {
-			transform: translateX(0.3em);
-		}
-		&.previous:hover span {
-			transform: translateX(-0.3em);
-		}
-	}
-
 	.colors {
 		display: inline-flex;
 		margin-top: 0.4rem;
