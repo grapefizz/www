@@ -47,7 +47,7 @@
                 </svg>
             </div>
         </div>
-        <p>writting code 24/7 (it works <strong>sometimes</strong>)</p>
+        <p><i>beep boop beep boop</i></p>
         <nav>
             <a class="nav" href="/about"><span class="arrow">-></span><span class="slash">/</span>about</a>
             <a class="nav" href="/projects"><span class="arrow">-></span><span class="slash">/</span>projects</a>

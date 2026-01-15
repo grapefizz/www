@@ -6,7 +6,7 @@
 
 	let content = {
 		languages: {
-			general: ['py', 'js', 'rust', 'java', 'swift', 'c++', 'c', 'lua'],
+			coding: ['py', 'js', 'rust', 'zig', 'java', 'swift', 'c++', 'c', 'lua'],
 		},
 		tech: {
 			frameworks: ['svelte', 'astro', 'actix', 'leptos', 'flask', 'openresty'],
@@ -18,7 +18,7 @@
 <main>
 	<h1>about</h1>
 	<p>
-		heyo! i'm ari but i go by grapefizz online. i'm a sophmore highschool student in Kosovo who is interested in coding, pixel art, 3d modeling, urbex, mtb, snowboarding and swimming.
+		hi! i'm grapefizz. i'm a junior highschool student who is interested in coding, mechanical engineering, digital art, animation, urbex, mtb, snowboarding, swimming and photography.
 	</p>
 	<h2>links</h2>
 	<a href="https://github.com/grapefizz" class="external icon" target="_blank" rel="noopener">
