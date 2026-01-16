@@ -6,7 +6,7 @@
 
 	let content = {
 		languages: {
-			coding: ['py', 'js', 'rust', 'zig', 'java', 'swift', 'c++', 'c', 'lua'],
+			general: ['py', 'js', 'rust', 'zig', 'java', 'swift', 'c++', 'c', 'lua'],
 		},
 		tech: {
 			frameworks: ['svelte', 'astro', 'actix', 'leptos', 'flask', 'openresty'],
