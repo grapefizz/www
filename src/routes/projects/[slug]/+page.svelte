@@ -23,6 +23,10 @@
 		emblaApi.scrollPrev();
 	}
 
+	function isVideo(filename) {
+		return /\.(mp4|webm|mov|avi)$/i.test(filename);
+	}
+
 	const Content = $derived(content);
 </script>
 
@@ -54,7 +58,14 @@
 		<div class="embla__container" class:loop>
 			{#each metadata.images as image}
 				<div class="embla__slide" class:tall={metadata.aspect_ratio === 'tall'}>
-					<Image {image} alt={metadata.description} sizes="(min-width: 800px) 80vw, 100vw" />
+					{#if isVideo(image)}
+						<video controls width="100%" height="auto">
+							<source src={`/${image}`} type="video/mp4" />
+							Your browser does not support the video tag.
+						</video>
+					{:else}
+						<Image {image} alt={metadata.description} sizes="(min-width: 800px) 80vw, 100vw" />
+					{/if}
 				</div>
 			{/each}
 		</div>
