@@ -158,7 +158,7 @@
 					on:mousedown={() => handleMouseDown(key.note)}
 					on:mouseenter={() => handleMouseEnter(key.note)}
 					on:mouseleave={() => handleMouseLeave(key.note)}
-					on:touchstart={() => handleTouchStart(key.note)}
+					on:touchstart|preventDefault={() => handleTouchStart(key.note)}
 				>
 					<span>{key.label}</span>
 				</button>
@@ -173,7 +173,7 @@
 					on:mousedown={() => handleMouseDown(key.note)}
 					on:mouseenter={() => handleMouseEnter(key.note)}
 					on:mouseleave={() => handleMouseLeave(key.note)}
-					on:touchstart={() => handleTouchStart(key.note)}
+					on:touchstart|preventDefault={() => handleTouchStart(key.note)}
 				>
 					<span>{key.label}</span>
 				</button>
@@ -200,6 +200,7 @@
 		padding: 1rem;
 		display: flex;
 		flex-direction: column;
+		touch-action: manipulation;
 	}
 
 	.white-keys {
@@ -231,6 +232,7 @@
 		align-items: flex-end;
 		justify-content: center;
 		padding-bottom: 0.5rem;
+		touch-action: manipulation;
 	}
 
 	.white-key {
@@ -309,6 +311,35 @@
 
 		.black-key {
 			padding-bottom: 0.3rem;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.piano {
+			--key-width: 2rem;
+			height: 8rem;
+			padding: 0.5rem;
+			width: calc(13 * var(--key-width));
+		}
+
+		.black-keys {
+			top: 0.5rem;
+			left: 0.5rem;
+			width: calc(13 * var(--key-width));
+		}
+
+		.key {
+			font-size: 0.55rem;
+			padding-bottom: 0.2rem;
+		}
+
+		.black-key {
+			width: 1.6rem;
+			padding-bottom: 0.2rem;
+		}
+
+		.key span {
+			font-size: 0.55rem;
 		}
 	}
 </style>
