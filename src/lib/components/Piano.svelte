@@ -34,20 +34,21 @@
 		{ note: 'E5', label: 'E', color: 'var(--blue)' },
 		{ note: 'F5', label: 'F', color: 'var(--purple)' },
 		{ note: 'G5', label: 'G', color: 'var(--pink)' },
-		{ note: 'A5', label: 'A', color: 'var(--blue)' }
+		{ note: 'A5', label: 'A', color: 'var(--blue)' },
+		{ note: 'B5', label: 'B', color: 'var(--purple)' }
 	];
 
 	const BLACK_KEYS = [
-		{ note: 'C#4', label: 'C#', position: 0.5, color: 'var(--purple)' },
-		{ note: 'D#4', label: 'D#', position: 1.5, color: 'var(--pink)' },
-		{ note: 'F#4', label: 'F#', position: 3.5, color: 'var(--blue)' },
-		{ note: 'G#4', label: 'G#', position: 4.5, color: 'var(--purple)' },
-		{ note: 'A#4', label: 'A#', position: 5.5, color: 'var(--pink)' },
-		{ note: 'C#5', label: 'C#', position: 7.5, color: 'var(--blue)' },
-		{ note: 'D#5', label: 'D#', position: 8.5, color: 'var(--purple)' },
-		{ note: 'F#5', label: 'F#', position: 10.5, color: 'var(--pink)' },
-		{ note: 'G#5', label: 'G#', position: 11.5, color: 'var(--blue)' },
-		{ note: 'A#5', label: 'A#', position: 12.5, color: 'var(--purple)' }
+		{ note: 'C#4', label: 'C#', position: 1, color: 'var(--purple)' },
+		{ note: 'D#4', label: 'D#', position: 2, color: 'var(--pink)' },
+		{ note: 'F#4', label: 'F#', position: 4, color: 'var(--blue)' },
+		{ note: 'G#4', label: 'G#', position: 5, color: 'var(--purple)' },
+		{ note: 'A#4', label: 'A#', position: 6, color: 'var(--pink)' },
+		{ note: 'C#5', label: 'C#', position: 8, color: 'var(--blue)' },
+		{ note: 'D#5', label: 'D#', position: 9, color: 'var(--purple)' },
+		{ note: 'F#5', label: 'F#', position: 11, color: 'var(--pink)' },
+		{ note: 'G#5', label: 'G#', position: 12, color: 'var(--blue)' },
+		{ note: 'A#5', label: 'A#', position: 13, color: 'var(--pink)' }
 	];
 
 	function playNote(frequency) {
@@ -169,7 +170,7 @@
 				<button
 					class="key black-key"
 					class:active={pressedKeys.has(key.note)}
-					style="left: calc({key.position} * var(--key-width)); --key-color: {key.color}"
+					style="left: calc({key.position} * var(--key-width) - (var(--black-key-width) / 2)); --key-color: {key.color}"
 					on:mousedown={() => handleMouseDown(key.note)}
 					on:mouseenter={() => handleMouseEnter(key.note)}
 					on:mouseleave={() => handleMouseLeave(key.note)}
@@ -193,11 +194,13 @@
 	.piano {
 		position: relative;
 		--key-width: 3.5rem;
-		width: calc(13 * var(--key-width));
-		height: 12rem;
+		--black-key-width: 2.2rem;
+		--body-padding: 1.5rem;
+		width: calc(14 * var(--key-width) + (2 * var(--body-padding)));
+		height: 13rem;
 		background: var(--bg-3);
 		border: 1px solid var(--txt-3);
-		padding: 1rem;
+		padding: var(--body-padding);
 		display: flex;
 		flex-direction: column;
 		touch-action: manipulation;
@@ -209,13 +212,14 @@
 		height: 100%;
 		position: relative;
 		z-index: 1;
+		width: calc(14 * var(--key-width));
 	}
 
 	.black-keys {
 		position: absolute;
-		top: 1rem;
-		left: 1rem;
-		width: calc(13 * var(--key-width));
+		top: var(--body-padding);
+		left: var(--body-padding);
+		width: calc(14 * var(--key-width));
 		height: 7rem;
 	}
 
@@ -233,6 +237,7 @@
 		justify-content: center;
 		padding-bottom: 0.5rem;
 		touch-action: manipulation;
+		box-sizing: border-box;
 	}
 
 	.white-key {
@@ -259,12 +264,11 @@
 
 	.black-key {
 		position: absolute;
-		width: 2.2rem;
+		width: var(--black-key-width);
 		height: 100%;
 		background: var(--bg);
 		color: var(--txt-2);
 		border: 1px solid var(--txt-3);
-		margin-left: calc(var(--key-width) * -0.5);
 		z-index: 2;
 		display: flex;
 		align-items: flex-end;
@@ -295,13 +299,8 @@
 	@media (max-width: 768px) {
 		.piano {
 			--key-width: 2.5rem;
+			--body-padding: 1rem;
 			height: 10rem;
-			padding: 0.75rem;
-		}
-
-		.black-keys {
-			top: 0.75rem;
-			left: 0.75rem;
 		}
 
 		.key {
@@ -317,15 +316,9 @@
 	@media (max-width: 480px) {
 		.piano {
 			--key-width: 2rem;
+			--black-key-width: 1.6rem;
 			height: 8rem;
-			padding: 0.5rem;
-			width: calc(13 * var(--key-width));
-		}
-
-		.black-keys {
-			top: 0.5rem;
-			left: 0.5rem;
-			width: calc(13 * var(--key-width));
+			--body-padding: 0.75rem;
 		}
 
 		.key {
@@ -334,7 +327,6 @@
 		}
 
 		.black-key {
-			width: 1.6rem;
 			padding-bottom: 0.2rem;
 		}
 
