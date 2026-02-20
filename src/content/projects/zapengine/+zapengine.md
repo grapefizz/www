@@ -1,49 +1,109 @@
 ---
-published: false
+published: true
 name: zapengine
-description: simple game engine made entirely in zig
-thumbnail: zapengine.png
-images: [zapengine.png]
+description: simple game engine made entirely in go
+thumbnail: zap.png
+images: [tafa1.png, tafa2.png, tafa3.png, tafa4.png]
 github: https://github.com/grapefizz/zapengine
 website: 
 date: 2025-08-01
 ---
 
-# zapengine
 
-zapengine is a simple 2D game engine written in Zig, using Vulkan for rendering and GLFW for windowing and input.
+# ZapEngine
 
-## features
-- Basic window creation with GLFW
-- Vulkan (MoltenVK) rendering backend (scaffolded, not yet drawing)
-- Sprite struct and input polling (expandable)
+ZapEngine is a lightweight, fully functional 2D game engine built in Go, powered by [Ebitengine](https://ebitengine.org/) under the hood. It utilizes a robust **Entity-Component-System (ECS)** architecture, scene management, and built-in essential systems to accelerate your game development process.
 
-## requirements
-- Zig 0.14.1 or newer
-- Vulkan SDK (LunarG) for macOS
-- MoltenVK (see below)
-- GLFW (install via Homebrew: `brew install glfw`)
+## Features
 
-## setup
-1. **Install the Vulkan SDK** from [LunarG](https://vulkan.lunarg.com/sdk/home).
-2. **Install MoltenVK**:
-   - Download from [MoltenVK Releases](https://github.com/KhronosGroup/MoltenVK/releases)
-   - Copy `libMoltenVK.dylib` to `/usr/local/lib/`
-3. **Install GLFW**:
-   - `brew install glfw`
-4. **Clone this repository** and build:
-   ```sh
-   zig build run-demo
+- **Entity-Component-System (ECS)**: A flexible and generic data-oriented design pattern.
+  - Entities are lightweight numeric IDs.
+  - Components are standard Go structs.
+  - Systems contain the logic to process entities with specific components.
+- **Scene Management**: Easily modularize your game states (e.g., Main Menu, Level 1, Game Over) and switch between them.
+- **Built-in Components**: Comes with standard `Transform` and `Sprite` components.
+- **Built-in Systems**: Includes a `RenderSystem` that automatically draws entities that have both a `Transform` and a `Sprite`.
+- **Input Wrapper**: A simplified wrapper over Ebitengine's input state for querying keyboard and mouse interactions.
+- **Examples**: Built-in examples demonstrating different features of the engine.
+
+## Installation
+
+Ensure you have a working Go environment (v1.21 or later is recommended).
+
+```bash
+go get github.com/grapefizz/zapengine
+```
+
+**Note for Linux users**: Ebitengine requires certain system libraries to be installed (e.g., OpenGL, ALSA, X11).
+- **Arch Linux**: `sudo pacman -S git go pkgconf alsa-lib libxcursor libxi libxinerama libxrandr mesa glibc base-devel`
+- **Ubuntu/Debian**: `sudo apt install libgl1-mesa-dev libxcursor-dev libxi-dev libxinerama-dev libxrandr-dev libxxf86vm-dev libasound2-dev pkg-config`
+
+For other operating systems, refer to the [Ebitengine installation guide](https://ebitengine.org/en/documents/install.html).
+
+## Usage
+
+Here is a minimal example of starting the engine:
+
+```go
+package main
+
+import (
+	"log"
+	"github.com/grapefizz/zapengine"
+	"github.com/grapefizz/zapengine/ecs"
+	"github.com/hajimehoshi/ebiten/v2"
+)
+
+type MyScene struct {
+	world *ecs.World
+}
+
+func (s *MyScene) Load() {
+    s.world = ecs.NewWorld()
+    // Setup entities, components, and systems here
+}
+
+func (s *MyScene) Unload() {}
+
+func (s *MyScene) Update() error {
+	return s.world.Update()
+}
+
+func (s *MyScene) Draw(screen *ebiten.Image) {
+	s.world.Draw(screen)
+}
+
+func main() {
+	engine := zapengine.NewEngine(800, 600, "My Awesome Game")
+	engine.SetScene(&MyScene{})
+
+	if err := engine.Run(); err != nil {
+		log.Fatal(err)
+	}
+}
+```
+
+## Running the Examples
+
+ZapEngine comes with several built-in examples that demonstrate its features. You can run them directly from the repository:
+
+1. **Basic Demo**
+   ```bash
+   go run ./cmd/example
    ```
-
-## project structure
-- `src/engine.zig` — Core engine code (window, input, sprite, rendering stub)
-- `src/demo.zig` — Example usage and main loop
-- `build.zig` — Build script for Zig
-
-## notes
-- The current version only opens a window. Vulkan rendering is not yet implemented.
-- To add rendering, you will need to implement Vulkan instance, device, swapchain, and drawing code in `engine.zig`.
-
-## license
-MIT
+2. **Bouncing Sprites** (Velocity systems and screen boundaries)
+   ```bash
+   go run ./cmd/bouncing
+   ```
+3. **Input Handling** (Keyboard and Mouse state queries)
+   ```bash
+   go run ./cmd/input
+   ```
+4. **Scene Switching** (Transitioning between different game scenes)
+   ```bash
+   go run ./cmd/scenes
+   ```
+5. **Stress Test** (Rendering and updating 10,000 entities)
+   ```bash
+   go run ./cmd/stress
+   ```
