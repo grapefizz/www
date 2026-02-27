@@ -1,6 +1,6 @@
-import adapter from '@sveltejs/adapter-vercel';
+import adapter from '@sveltejs/adapter-static';
 import { mdsvex, escapeSvelte } from 'mdsvex';
-import { codeToHtml } from 'shiki/bundle/full';
+import { codeToHtml } from 'shiki';
 import {
 	transformerNotationDiff,
 	transformerMetaHighlight,
@@ -38,7 +38,7 @@ const config = {
 		// If your environment is not supported or you settled on a specific environment, switch out the adapter.
 		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
 		adapter: adapter({
-			runtime: 'nodejs20.x'
+			fallback: '404.html'
 		}),
 		paths: {
 			relative: false

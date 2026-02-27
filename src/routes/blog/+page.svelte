@@ -1,12 +1,16 @@
 <script>
 	import { formatDate } from '$lib/js/utils.js';
 	import { iconMap } from '$lib/js/icons.js';
+	import RssIcon from '~icons/ph/rss';
 
 	let { data } = $props();
 </script>
 
 <main>
-	<h1>blog</h1>
+	<div class="header">
+		<h1>blog<span class="count" aria-label="{data.posts.length} posts">[{data.posts.length}]</span></h1>
+		<a href="/blog/rss.xml" class="rss-link"><RssIcon /> rss</a>
+	</div>
 
 	<div class="posts">
 		{#each data.posts as post}
@@ -32,6 +36,27 @@
 		padding: 0 1.5rem;
 	}
 
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.rss-link {
+		font-family: 'Space Mono', monospace;
+		color: var(--txt-2);
+		text-decoration: none;
+
+		:global(svg) {
+			font-size: 1.125em;
+			vertical-align: middle;
+		}
+	}
+
+	.rss-link:hover {
+		color: var(--txt);
+	}
+
 	.posts {
 		display: flex;
 		flex-direction: column;
@@ -45,22 +70,26 @@
 		color: var(--txt);
 	}
 
+	.count {
+		color: var(--bg-3);
+	}
+
 	h2 :global(.icon) {
 		margin-right: 0.75ch;
 	}
 
 	.date {
-		font-size: 1.2rem;
+		font-size: 1.125rem;
 		font-family: 'Space Mono', monospace;
 		color: var(--txt-2);
-		margin-top: 0.2rem;
+		margin-top: 0.25rem;
 	}
 
-	a {
+	.link {
 		display: grid;
 		grid-template-columns: auto auto;
 		justify-content: left;
-		gap: 0.8rem 2rem;
+		gap: 0.5rem 2rem;
 	}
 
 	.description {
@@ -68,9 +97,9 @@
 	}
 
 	@media (max-width: 600px) {
-		a {
+		.link {
 			grid-template-columns: auto;
-			gap: 0.8rem;
+			gap: 0.5rem;
 
 			.description {
 				grid-column: 1;

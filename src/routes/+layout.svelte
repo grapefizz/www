@@ -8,10 +8,7 @@
 	import { fly } from 'svelte/transition';
 	import { prefersReducedMotion } from 'svelte/motion';
 	import { beforeNavigate } from '$app/navigation';
-	import { injectAnalytics } from '@vercel/analytics/sveltekit';
 
-	// Inject Vercel Analytics
-	injectAnalytics();
 
 	let { children } = $props();
 

@@ -5,14 +5,20 @@
 </script>
 
 <main>
-	<h1>projects</h1>
+	<h1>
+		projects<span class="count" aria-label="{data.posts.length} projects"
+			>[{data.posts.length}]</span
+		>
+	</h1>
 	<div class="posts">
-		{#each data.posts as post}
+		{#each data.posts as post, index}
 			<a href={'/projects/' + post.slug} class="link">
 				<Image
 					image={post.thumbnail}
 					alt={post.description}
 					sizes="(min-width: 1200px) 50vw, 100vw"
+					loading={index < 6 ? 'eager' : 'lazy'}
+					fetchpriority={index < 3 ? 'high' : 'auto'}
 					--aspect-ratio="16/9"
 				/>
 				<h2>{post.name}<span class="arrow">-></span></h2>
@@ -24,20 +30,24 @@
 
 <style>
 	main {
-		padding: 0 5rem 5rem 5rem;
+		padding: 0 4rem 4rem 4rem;
 	}
 
 	.posts {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
-		gap: 2.5rem;
+		gap: 2rem;
 		max-width: 100%;
 	}
 
 	h2 {
-		margin: 1rem 0 0.5rem 0;
+		margin: 0.75rem 0 0.25rem 0;
 		color: var(--txt);
-		font-size: 1.6rem;
+		font-size: 1.5rem;
+	}
+
+	.count {
+		color: var(--bg-3);
 	}
 
 	a :global(picture) {

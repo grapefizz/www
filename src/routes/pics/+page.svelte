@@ -1,74 +1,73 @@
 <script>
-	import { onMount } from 'svelte';
-
-	const imports = import.meta.glob('/src/content/images/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}', {
-		import: 'default',
-		query: {
-			enhanced: true,
-			w: '2000;1200;800'
-		}
-	});
-	const entries = Object.entries(imports);
-	entries.reverse();
-
-	let images = $state([]);
-
-	async function loadImages() {
-		for (const [path, importFunc] of entries) {
-			const src = await importFunc();
-			images.push(src);
-			images = images;
-		}
-	}
-
-	onMount(() => {
-		loadImages();
-	});
+	let { data } = $props();
+	const images = data.images;
 </script>
 
 <main>
-	<h1>pics</h1>
-	<p>just some random photos. taken on my iphone 12 and iphone 17 pro.</p>
+	<h1>pics<span class="count" aria-label="{images.length} photos">[{images.length}]</span></h1>
+	<p>just some random photos. shot on iphone 12 and iphone 17 pro</p>
 	<br />
-	{#each images as image}
-		<picture>
-			<source srcset={image.sources.avif} type="image/avif" />
-			<source srcset={image.sources.webp} type="image/webp" />
-			<img
-				src={image.img.src}
-				alt=""
-				loading="lazy"
-				onload={(e) => (e.target.style.opacity = 1)}
-				width={image.img.w}
-				height={image.img.h}
-			/>
-		</picture>
-	{/each}
+	<div class="grid">
+		{#each images as image (image.img.src)}
+			<picture>
+				<source srcset={image.sources.avif} type="image/avif" />
+				<source srcset={image.sources.webp} type="image/webp" />
+				<img
+					src={image.img.src}
+					alt=""
+					loading="lazy"
+					onload={(e) => (e.target.style.opacity = 1)}
+					width={image.img.w}
+					height={image.img.h}
+				/>
+			</picture>
+		{/each}
+	</div>
 </main>
 
 <style>
 	main {
-		width: 100%;
-		max-width: 63rem;
-		margin: 0 auto 10rem auto;
-		padding: 0 1.5rem;
+		padding: 0 4rem 4rem 4rem;
+	}
+
+	.count {
+		color: var(--bg-3);
+	}
+
+	.grid {
+		columns: 3;
+		column-gap: 1rem;
+		column-fill: balance;
 	}
 
 	picture {
 		display: block;
+		overflow: hidden;
+		break-inside: avoid;
 		margin-bottom: 1rem;
 	}
+
 	img {
 		transition: opacity 0.2s;
 		opacity: 0;
 		width: 100%;
 		height: auto;
+		display: block;
+	}
+
+	@media (max-width: 1400px) {
+		.grid {
+			columns: 2;
+		}
 	}
 
 	@media (max-width: 850px) {
 		main {
 			padding-left: 1.5rem;
 			padding-right: 1.5rem;
+		}
+		.grid {
+			columns: 1;
 		}
 	}
 </style>
