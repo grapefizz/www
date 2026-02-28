@@ -7,8 +7,8 @@
 	{#if $page.error}
 		<h1 class="errorCode">{$page.status}</h1>
 		<h2 class="errorMessage">{$page.error.message.toLowerCase()}</h2>
-		<!-- <h2>take a moment to play</h2>
-		<Piano /> -->
+		<h2>take a moment to play</h2>
+		<Piano />
 	{/if}
 </main>
 
