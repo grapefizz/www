@@ -1,6 +1,6 @@
 <script>
-	import { page } from '$app/stores';
-	import Piano from '$lib/components/Piano.svelte';
+	import { page } from "$app/stores";
+	import Piano from "$lib/components/Piano.svelte";
 </script>
 
 <main>
