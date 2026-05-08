@@ -5,6 +5,7 @@
 	injectAnalytics({ mode: dev ? 'development' : 'production' });
 
 	import '../app.css';
+	import 'katex/dist/katex.min.css';
 	import '$lib/assets/fonts/space-mono.css';
 	import '$lib/assets/fonts/space-grotesk.css';
 	import { page } from '$app/state';

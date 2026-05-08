@@ -1,5 +1,7 @@
 import adapter from '@sveltejs/adapter-static';
 import { mdsvex, escapeSvelte } from 'mdsvex';
+import remarkMath from 'remark-math';
+import rehypeKatexSvelte from 'rehype-katex-svelte';
 import { codeToHtml } from 'shiki';
 import {
 	transformerNotationDiff,
@@ -9,6 +11,8 @@ import {
 
 const mdsvexOptions = {
 	extensions: ['.md'],
+	remarkPlugins: [remarkMath],
+	rehypePlugins: [rehypeKatexSvelte],
 	highlight: {
 		highlighter: async (code, lang = 'text') => {
 			const html = await codeToHtml(code, {

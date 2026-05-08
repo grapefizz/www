@@ -30,6 +30,8 @@
 		"mdsvex": "^0.12.6",
 		"prettier": "^3.8.1",
 		"prettier-plugin-svelte": "^3.5.0",
+		"remark-math": "^3.0.1",
+		"rehype-katex-svelte": "^1.1.2",
 		"sass": "^1.97.3",
 		"shiki": "^3.22.0",
 		"svelte": "^5.53.0",
@@ -42,6 +44,7 @@
 	"dependencies": {
 		"@fontsource/space-mono": "5.1.x",
 		"@vercel/analytics": "^1.6.1",
-		"embla-carousel-svelte": "^8.6.0"
+		"embla-carousel-svelte": "^8.6.0",
+		"katex": "^0.16.10"
 	}
 }
