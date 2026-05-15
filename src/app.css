@@ -320,3 +320,38 @@ figure {
 	vertical-align: sub;
 	transform: translateY(4%);
 }
+
+/* Keep display math on one line, scale responsively, and allow horizontal scroll on very narrow screens */
+.katex-display, .MathJax_Display, .katex, .mjx-chtml {
+	display: block;
+	white-space: nowrap; /* prevent wrapping */
+	word-break: normal;
+	overflow-x: auto; /* allow horizontal scroll when needed */
+	-webkit-overflow-scrolling: touch;
+	max-width: 100%;
+	box-sizing: border-box;
+	/* responsive font size: doesn't grow too large, and shrinks on small screens */
+	font-size: clamp(0.85rem, 1.2vw + 0.1rem, 1.25rem);
+}
+
+/* Ensure the inner math is treated as a single inline block so it won't wrap internally */
+.katex .katex-display, .MathJax_Display .mjx-math, .mjx-chtml .mjx-math {
+	display: inline-block;
+	white-space: nowrap;
+}
+
+/* Tighter scaling on very narrow screens but still keep it single-line; user can scroll if too long */
+@media (max-width: 520px) {
+	.katex-display, .MathJax_Display, .katex, .mjx-chtml {
+		font-size: clamp(0.6rem, 2.5vw, 0.85rem);
+	}
+}
+
+/* Subtle horizontal scrollbar styling */
+.katex-display::-webkit-scrollbar, .MathJax_Display::-webkit-scrollbar {
+	height: 8px;
+}
+.katex-display::-webkit-scrollbar-thumb, .MathJax_Display::-webkit-scrollbar-thumb {
+	background: rgba(255,255,255,0.06);
+	border-radius: 4px;
+}
