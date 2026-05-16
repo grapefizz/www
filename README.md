@@ -1,3 +1,3 @@
-my website <https://grapefizz.dev>.
+my website <https://grapefizz.pages.dev>.
 
-built with sveltekit & mdvsex, deployed on vercel.
+built with sveltekit & mdvsex, deployed on cloudflare pages.

@@ -12,8 +12,7 @@
     "test:integration": "playwright test",
     "test:unit": "vitest",
     "deploy vercel": "vercel build --prod && vercel deploy --prebuilt --prod",
-    "deploy": "vite build && wrangler deploy",
-    "deploy gh-pages": "vite build && wrangler pages deploy"
+    "deploy": "vite build && wrangler pages deploy"
   },
   "devDependencies": {
     "@iconify-json/ph": "^1.2.2",
