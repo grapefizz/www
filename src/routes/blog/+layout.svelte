@@ -1,14 +1,14 @@
 <script>
-	let { children } = $props();
+  let { children } = $props();
 </script>
 
 <svelte:head>
-	<link
-		rel="alternate"
-		type="application/rss+xml"
-		title="grapefizz.dev - blog rss feed"
-		href="/blog/rss.xml"
-	/>
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="grapefizz.pages.dev - blog rss feed"
+    href="/blog/rss.xml"
+  />
 </svelte:head>
 
 {@render children()}
