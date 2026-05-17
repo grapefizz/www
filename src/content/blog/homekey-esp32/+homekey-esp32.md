@@ -15,7 +15,7 @@ A few months ago I got really invested in smart homes, specifically in Apple Hom
 But getting your hands on a Homekit supported lock isn't always easy, or cheap for that matter.
 Thats when I discovered you can use an ESP32 to emulate a Homekit lock.
 
-<CaptionImage image="esp32.png" alt="ESP32 chip." source="https://en.wikipedia.org/wiki/ESP32" sizes="10rem"/>
+<CaptionImage image="esp32.png" alt="ESP32 chip." source="https://en.wikipedia.org/wiki/ESP32" sizes="50rem"/>
 
 ### how exactly does this work?
 Well, the full setup would be something along the lines of an ESP32, and NFC reader like PN532 or RC522, and something like a servo to actually lock the door.
@@ -30,7 +30,7 @@ Commertially, Homekey locks usually retail for around €150-€300+. The DIY sc
 The project that makes this possible is [Homekey-ESP32](https://github.com/rednblkx/HomeKey-ESP32), a full self-contained firmware with a web interface that connects via WebSocket for real-time status updates as well as OTA updates. 
 All settings including Wi-Fi, Homekit setup code and MQTT broker are all stored on the ESP32 and can be configured via the web interface.
 
-<CaptionImage image="homekey.png" alt="Homekey in Apple Wallet." source="https://en.wikipedia.org/wiki/Apple_Home" sizes="10rem"/>
+<CaptionImage image="homekey.png" alt="Homekey in Apple Wallet." source="https://en.wikipedia.org/wiki/Apple_Home" sizes="50rem"/>
 
 I'll give a few rough steps on how this is done just to get a simple idea.
 
