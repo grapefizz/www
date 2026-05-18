@@ -1,7 +1,7 @@
 ---
 published: true
 name: 'homekey esp32'
-icon: 'paper'
+icon: 'globe'
 description: a diy solution for using apple's homekey without a compatible smartlock
 date: 2026-05-16
 ---
