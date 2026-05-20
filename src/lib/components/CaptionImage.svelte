@@ -1,26 +1,26 @@
 <script>
-	import Image from './Image.svelte';
+  import Image from "./Image.svelte";
 
-	let { image, alt = '', source = '', sizes = '', loading = '' } = $props();
+  let { image, alt = "", source = "", sizes = "", loading = "" } = $props();
 
-	source = source.replace(/</g, '').replace(/>/g, '');
+  source = source.replace(/</g, "").replace(/>/g, "");
 </script>
 
 <figure>
-	<Image {image} {alt} {sizes} {loading} />
-	{#if alt !== ''}
-		<figcaption>
-			{alt}
-			{#if source !== ''}
-				<a href={source}>source</a>{/if}
-		</figcaption>
-	{/if}
+  <Image {image} {alt} {sizes} {loading} />
+  {#if alt !== ""}
+    <figcaption>
+      {alt}
+      {#if source !== ""}
+        <a href={source}>source</a>{/if}
+    </figcaption>
+  {/if}
 </figure>
 
 <style>
-	figcaption {
-		font-size: 1rem;
-		text-align: center;
-		margin-top: 1.5rem;
-	}
+  figcaption {
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 1.5rem;
+  }
 </style>
