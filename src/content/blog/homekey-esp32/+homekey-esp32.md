@@ -39,4 +39,4 @@ I'll give a few rough steps on how this is done just to get a simple idea.
 - After flashing, the ESP32 will create its own Wi-Fi network where you'll have to join to configure the ESP32 to connect to your home network.
 - After you've configured everything to your liking, you can link up the ESP32 with apple Home via the Homekit setup code seen on the web interface.
 
-And thats about it... theres nothing more to it, looks a lot harder on paper than it actually is.
+And thats about it... theres nothing more to it, looks a lot harder on paper than it actually is. With all of that said, I hope you enjoyed this small blog post. I look forward to seeing what everyone makes :)
