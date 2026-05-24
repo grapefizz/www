@@ -1,11 +1,16 @@
-import * as lora from '../../content/lora/lora.md';
+import { getPosts } from "$lib/js/posts.js";
 
-export function load() {
-	return {
-		content: lora,
-		meta: {
-			title: lora.metadata.title,
-			description: lora.metadata.description
-		}
-	};
+export async function load() {
+  const modules = import.meta.glob("/src/content/lora/*/*.md");
+  let posts = await getPosts(modules);
+
+  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  return {
+    posts,
+    meta: {
+      title: "lora",
+      description: "our secret little page",
+    },
+  };
 }
