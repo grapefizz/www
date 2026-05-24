@@ -8,7 +8,7 @@
 <main>
   <div class="header">
     <h1>
-      haajjj baabeee :3 <span
+      haajjj baabeee :) <span
         class="count"
         aria-label="{data.posts.length} posts">[{data.posts.length}]</span
       >
