@@ -4,6 +4,7 @@ import CodeIcon from "~icons/ph/code";
 import HeartIcon from "~icons/ph/heart";
 import HouseIcon from "~icons/ph/house";
 import CakeIcon from "~icons/ph/cake";
+import LegoIcon from "~icons/ph/lego";
 
 export const iconMap = {
   paper: FileIcon,
@@ -12,4 +13,5 @@ export const iconMap = {
   heart: HeartIcon,
   house: HouseIcon,
   cake: CakeIcon,
+  lego: LegoIcon,
 };
