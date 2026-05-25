@@ -12,5 +12,5 @@ date: 2026-05-24
 
 ### Haaajj pretty prettyyyy I made a small page for thingies I make so you can play with em
 
-## Piano
+## piano
 <Piano />
