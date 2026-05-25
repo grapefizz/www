@@ -3,7 +3,7 @@ published: true
 name: carbon dioxide
 description: oxocarbon macos dotfiles
 thumbnail: ss1.png
-images: [ss1.png, ss2.png, ss3.png]
+images: [ss1.png, ss2.png, ss4.png, ss3.png]
 github: https://github.com/grapefizz/co2
 website: 
 date: 2026-05-22
