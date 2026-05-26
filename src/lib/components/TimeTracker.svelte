@@ -165,4 +165,10 @@
 	.invalid {
 		color: var(--txt-2);
 	}
+
+	@media (max-width: 600px) {
+		.day-tracker {
+			font-size: 0.78em;
+		}
+	}
 </style>
