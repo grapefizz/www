@@ -7,15 +7,19 @@ date: 2025-12-20
 ---
 
 # 1.0
-
-## features
-
+### features
 - unlimited hugs
 - unlimited kisses
 - unlimited love
 - laughs at my bad jokes
-
-## bugs
-
+### bugs
 - steals hoodies
 - doesn't get enough sleep :sob:
+
+# 1.1
+### features
+- extra clingy (highly requested feature)
+- kisses with 20% more love
+### bugs
+- stolen hoodies locked until winter
+- will boop you at random
