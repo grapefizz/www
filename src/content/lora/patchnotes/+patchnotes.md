@@ -1,0 +1,21 @@
+---
+published: true
+name: 'patch notes'
+icon: 'bug'
+description: girlfriend patch notes for all versions
+date: 2025-12-20
+---
+
+# 1.0
+
+## features
+
+- unlimited hugs
+- unlimited kisses
+- unlimited love
+- laughs at my bad jokes
+
+## bugs
+
+- steals hoodies
+- doesn't get enough sleep :sob:
