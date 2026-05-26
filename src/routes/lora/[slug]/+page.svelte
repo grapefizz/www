@@ -9,7 +9,7 @@
   const Content = $derived(content);
 </script>
 
-<main>
+<main class:wide={metadata.layout === "wide"}>
   <div class="head">
     <a href="/lora" class="back"><span class="arrow">&lt;-</span>other stuffs</a
     >
@@ -17,7 +17,10 @@
   <h1>
     {#if metadata.icon}
       <Icon class="icon" />
-    {/if}{metadata.name}
+    {/if}{metadata.name}{#if metadata.pictureCount !== undefined}<span
+        class="count"
+        aria-label="{metadata.pictureCount} photos">[{metadata.pictureCount}]</span
+      >{/if}
   </h1>
   <p class="date">{formatDate(metadata.date)}</p>
   <p class="description">{metadata.description}</p>
@@ -32,6 +35,12 @@
     max-width: 53rem;
     margin: 0 auto 10rem auto;
     padding: 1.5rem;
+  }
+
+  main.wide {
+    max-width: none;
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
 
   .content {
@@ -59,5 +68,17 @@
 
   h1 :global(.icon) {
     margin-right: 0.75ch;
+  }
+
+  .count {
+    color: var(--bg-3);
+    margin-left: 0.35ch;
+  }
+
+  @media (max-width: 850px) {
+    main.wide {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
   }
 </style>

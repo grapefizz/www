@@ -20,18 +20,38 @@ export async function load({ params }) {
 		throw error(404, 'post not found');
 	}
 
+	const metadata = { ...post.metadata };
+
+	if (params.slug === 'favoritepics') {
+		const pictures = import.meta.glob(
+			'/src/content/lora/favoritepics/pics/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}',
+			{
+				eager: true,
+				query: {
+					enhanced: true,
+					w: '2000;1200;800'
+				}
+			}
+		);
+
+		metadata.pictureCount = Object.keys(pictures).length;
+	}
+
 	let image;
 
-	if (post.metadata.ogImage) {
-		const imagePath = match.path.split('/').slice(0, -1).join('/') + '/' + post.metadata.ogImage;
+	if (metadata.ogImage) {
+		const imagePath = match.path.split('/').slice(0, -1).join('/') + '/' + metadata.ogImage;
 		image = await importOgImage(imagePath);
 	}
 
 	return {
-		post,
+		post: {
+			...post,
+			metadata
+		},
 		meta: {
-			title: post.metadata.name,
-			description: post.metadata.description,
+			title: metadata.name,
+			description: metadata.description,
 			type: 'article',
 			image
 		}
