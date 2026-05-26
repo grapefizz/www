@@ -1,7 +1,7 @@
 ---
 published: true
 name: 'favorite pics'
-icon: 'heart'
+icon: 'camera'
 description: 'my favorite pics of us'
 date: 2026-05-26
 layout: 'wide'

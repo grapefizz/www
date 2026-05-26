@@ -7,6 +7,7 @@ import CakeIcon from "~icons/ph/cake";
 import LegoIcon from "~icons/ph/lego";
 import SmileyIcon from "~icons/ph/smiley";
 import BugIcon from "~icons/ph/bug";
+import CameraIcon from "~icons/ph/camera";
 
 export const iconMap = {
   paper: FileIcon,
@@ -18,4 +19,5 @@ export const iconMap = {
   lego: LegoIcon,
   smiley: SmileyIcon,
   bug: BugIcon,
+  camera: CameraIcon,
 };
