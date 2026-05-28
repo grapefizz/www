@@ -28,4 +28,4 @@ new game modes that required a new currency to play.
 
 In the midst of all of this was happening with pvz 2, Popcap was also developing a spinoff game called Pvz Garden Warfare. Pvz GW oficially
 released on February 25, 2014, and took a new spin on the original pvz format. Gone were the old stationary plants and in came a new class
-system. The core gameplay was a 12v12 team based third person shooter, split into two teams, the plants and the zombies. Garden Warfare was...
+system. The core gameplay was a 12v12 team based third person shooter, split into two teams, the plants and the zombies. Garden Warfare was
