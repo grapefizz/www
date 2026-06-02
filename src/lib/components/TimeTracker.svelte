@@ -126,6 +126,7 @@
 			: ''
 	);
 	const datetime = $derived(isValidDate ? start.toISOString().slice(0, 10) : '');
+	const formattedCount = $derived(String(count).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
 
 	onMount(() => {
 		const intervalMs = selectedUnit === 'seconds' ? 1_000 : 60_000;
@@ -139,7 +140,7 @@
 
 {#if isValidDate}
 	<span class="day-tracker">
-		<span class="count">{count}</span>
+		<span class="count">{formattedCount}</span>
 		<span class="label">{label}</span>
 		{#if showSince}
 			<span class="since">since <time {datetime}>{formattedDate}</time></span>
