@@ -23,3 +23,10 @@ date: 2025-12-20
 ### bugs
 - stolen hoodies locked until winter
 - will boop you at random
+
+# 1.2
+### features
+- new crop tops
+- 50% more attractive
+### bugs
+- 20% more water needed during summer
