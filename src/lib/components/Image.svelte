@@ -10,8 +10,14 @@
   // Check if the image is an external URL
   const isExternalUrl = $derived(image ? /^https?:\/\//.test(image) : false);
   const isGif = $derived(image ? image.endsWith(".gif") : false);
+  const isVideo = $derived(image ? /\.(mp4|webm|ogg)$/i.test(image) : false);
 
   const gifs = import.meta.glob("/src/content/**/*.gif", {
+    import: "default",
+    eager: true,
+  });
+
+  const videos = import.meta.glob("/src/content/**/*.{mp4,webm,ogg}", {
     import: "default",
     eager: true,
   });
@@ -45,7 +51,16 @@
     }
   }
 
+  function importVideo(image) {
+    for (const [path, src] of Object.entries(videos)) {
+      if (path.includes(image)) {
+        return src;
+      }
+    }
+  }
+
   const src = $derived(image && !isExternalUrl ? importImage(image) : null);
+  const videoSrc = $derived(image && !isExternalUrl && isVideo ? importVideo(image) : null);
 </script>
 
 {#if isExternalUrl}
@@ -57,6 +72,15 @@
     {sizes}
     onload={(e) => (e.target.style.opacity = 1)}
   />
+{:else if isVideo}
+  {#if videoSrc}
+    <video
+      src={videoSrc}
+      controls
+      {loading}
+      onloadedmetadata={(e) => (e.target.style.opacity = 1)}
+    />
+  {/if}
 {:else if isGif}
   {#if src}
     <img
@@ -90,7 +114,8 @@
     aspect-ratio: var(--aspect-ratio, auto);
   }
 
-  img {
+  img,
+  video {
     display: block;
     width: var(--width, 100%);
     height: var(--height, auto);
