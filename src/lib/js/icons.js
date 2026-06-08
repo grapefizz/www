@@ -11,6 +11,7 @@ import BugIcon from "~icons/ph/bug";
 import CameraIcon from "~icons/ph/camera";
 import ClockIcon from "~icons/ph/alarm";
 import PlantIcon from "~icons/ph/potted-plant";
+import PuzzleIcon from "~icons/ph/puzzle-piece";
 
 export const iconMap = {
   paper: FileIcon,
@@ -26,4 +27,5 @@ export const iconMap = {
   camera: CameraIcon,
   clock: ClockIcon,
   plant: PlantIcon,
+  puzzle: PuzzleIcon,
 };
