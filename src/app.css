@@ -9,6 +9,8 @@
   --blue: hsl(190, 70%, 50%);
   --purple: hsl(240, 80%, 66%);
   --pink: hsl(279, 80%, 66%);
+  --red: hsl(355, 78%, 64%);
+  --green: hsl(145, 65%, 55%);
   font-family: "Space Grotesk Variable", sans-serif;
   font-weight: 300;
 }

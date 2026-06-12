@@ -30,3 +30,11 @@ date: 2025-12-20
 - 50% more attractive
 ### bugs
 - 20% more water needed during summer
+
+# 1.3
+### features
+- 100% more freaky and horny
+- louder moans for more immersive freaky time
+### bugs
+- will give you random boners
+- is way too hot and distracts me
