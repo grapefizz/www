@@ -125,6 +125,12 @@
       </div>
     </div>
   </div>
+  <h2>love of my life</h2>
+  <div class="info">
+    <a class="friend external" href="https://l0rush1.pages.dev/" target="_blank"
+      >l0rush1<span class="arrow">/></span></a
+    >
+  </div>
 </main>
 
 <style>
