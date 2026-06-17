@@ -12,6 +12,7 @@ import CameraIcon from "~icons/ph/camera";
 import ClockIcon from "~icons/ph/alarm";
 import PlantIcon from "~icons/ph/potted-plant";
 import PuzzleIcon from "~icons/ph/puzzle-piece";
+import StarFourIcon from "~icons/ph/star-four";
 
 export const iconMap = {
   paper: FileIcon,
@@ -28,4 +29,5 @@ export const iconMap = {
   clock: ClockIcon,
   plant: PlantIcon,
   puzzle: PuzzleIcon,
+  starfour: StarFourIcon,
 };

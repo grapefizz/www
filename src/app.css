@@ -278,6 +278,28 @@ figure {
 }
 
 .content {
+  table {
+    width: 100%;
+    margin: 2rem 0;
+    border-collapse: collapse;
+    border: 2px solid var(--bg-3);
+    font-size: 1.05rem;
+  }
+
+  th,
+  td {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--bg-3);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  thead th {
+    border-bottom-width: 2px;
+    background: var(--bg-2);
+    font-weight: 600;
+  }
+
   a {
     font-weight: 600;
     text-decoration: underline var(--txt-3) 2px;
