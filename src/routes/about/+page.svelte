@@ -2,7 +2,6 @@
   import GithubIcon from "~icons/ph/github-logo";
   import DiscordIcon from "~icons/ph/discord-logo";
   import KofiIcon from "~icons/ph/coffee";
-  import InstagramIcon from "~icons/ph/instagram-logo";
 
   let content = {
     languages: {
@@ -18,9 +17,10 @@
 <main>
   <h1>about</h1>
   <p>
-    hi! i'm grapefizz. i'm a junior highschool student who is interested in
+    hi! i'm grapefizz. i'm a senior highschool student who is interested in
     programming, engineering, digital art, 3d modeling, urbex, mtb, skiing,
-    swimming and photography.
+    swimming and photography. lately i've been playing minecraft, pvz, osu!,
+    pokemon and balatro
   </p>
   <h2>links</h2>
   <a
@@ -38,16 +38,6 @@
     rel="noopener"
   >
     <DiscordIcon /><span class="text">discord</span><span class="arrow">/></span
-    >
-  </a>
-  <a
-    href="https://www.instagram.com/karakushiari"
-    class="external icon"
-    target="_blank"
-    rel="noopener"
-  >
-    <InstagramIcon /><span class="text">instagram</span><span class="arrow"
-      >/></span
     >
   </a>
   <a
@@ -127,8 +117,11 @@
   </div>
   <h2>love of my life</h2>
   <div class="info">
-    <a class="friend external" href="https://l0rush1.pages.dev/" target="_blank"
-      >l0rush1<span class="arrow">/></span></a
+    <a
+      class="friend external"
+      href="https://l0rush1.pages.dev/"
+      target="_blank"
+      rel="noopener">l0rush1<span class="arrow">/></span></a
     >
   </div>
 </main>
