@@ -2,8 +2,8 @@
 published: true
 name: cratr
 description: linux server file manager written 100% in rust
-thumbnail: 1.png
-images: [1.png, 2.png]
+thumbnail: cratr1.png
+images: [cratr1.png, cratr2.png]
 github: https://github.com/grapefizz/cratr
 website: 
 date: 2025-07-24
