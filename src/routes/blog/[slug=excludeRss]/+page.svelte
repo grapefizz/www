@@ -32,7 +32,7 @@
 	}
 
 	.content {
-		overflow-x: hidden;
+		overflow-x: visible;
 		max-width: 100%;
 	}
 
