@@ -119,7 +119,7 @@
   <div class="info">
     <a
       class="friend external"
-      href="https://l0rush1.pages.dev/"
+      href="https://lorushi.pages.dev/"
       target="_blank"
       rel="noopener">l0rush1<span class="arrow">/></span></a
     >

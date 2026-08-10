@@ -12,7 +12,7 @@
   <meta property="og:type" content={type} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={$page.url.href} />
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="grapefizzdev" />
   <meta name="twitter:creator" content="grapefizzdev" />
   <meta name="twitter:title" content={title} />
@@ -20,14 +20,14 @@
   {#if image}
     <meta
       property="og:image"
-      content={"https://www.grapefizz.pages.dev" + image.img.src}
+      content={"https://grapefizz.pages.dev" + image.img.src}
     />
     <meta property="og:image:width" content={image.img.w} />
     <meta property="og:image:height" content={image.img.h} />
     <meta property="og:image:alt" content={title} />
     <meta
       name="twitter:image"
-      content={"https://www.grapefizz.pages.dev" + image.img.src}
+      content={"https://grapefizz.pages.dev" + image.img.src}
     />
     <meta name="twitter:image:alt" content={title} />
   {/if}
