@@ -17,7 +17,14 @@
 <main>
   <h1>about</h1>
   <p>
-    hi! i'm ari. i'm a senior in high school, with experience in software engineering.<br><br> i have been learning software development for 4 years at a course called jcoders. since last year, i've also been working at a company named stardent, where i helped build a crm web app. i used sveltekit for the website part and swiftui for the app part.<br> <br> i also help out at flossk. it's an ngo which organizes tech events. i volunteer at their events and help build software projects with other people there.<br> <br> i joined a game jam called spindown, made by flossk, where i built a full game with my own level editor, using a tool called love2d. we won first place. </p>
+hi! i'm ari, a high school senior with experience in software engineering and application development.
+<br><br>
+i've been studying software development at jcoders for the past four years, where i've built a strong foundation in programming and software development. since last year, i've also been working with stardent, where i helped develop a crm platform using sveltekit for the web application and swiftui for the native app.
+<br><br>
+i'm also involved with flossk, a nonprofit organization that supports and organizes technology-focused events in kosovo. i volunteer at their events and collaborate with other members on software projects and community initiatives.
+<br><br>
+i also participated in the spindown game jam, a game jam organized by flossk, where i developed a complete game in löve2d, including a custom-built level editor. our project won first place.
+
   <h2>links</h2>
   <a
     href="https://github.com/grapefizz"
@@ -42,8 +49,6 @@
     target="_blank"
     rel="noopener"
   >
-    <KofiIcon /><span class="text">ko-fi</span><span class="arrow">/></span>
-  </a>
   <h2>languages</h2>
   {#each Object.keys(content.languages) as category}
     <div class="info">
