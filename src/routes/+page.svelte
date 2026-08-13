@@ -10,7 +10,7 @@
 <main>
   <div class="container">
     <div class="row">
-      <h1>grapefizz</h1>
+      <h1>ari karakushi</h1>
       <div
         class="svg-container"
         class:ready={animationReady}
@@ -122,7 +122,7 @@
         </svg>
       </div>
     </div>
-    <p><i>beep boop beep boop</i></p>
+    <p><i>software developer and highschool student</i></p>
     <nav>
       <a class="nav" href="/about"
         ><span class="arrow">-></span><span class="slash">/</span>about</a

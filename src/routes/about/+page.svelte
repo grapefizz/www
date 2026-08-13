@@ -17,10 +17,9 @@
 <main>
   <h1>about</h1>
   <p>
-    hi! i'm grapefizz. i'm a senior highschool student who is interested in
+    hi! i'm ari. i'm a senior highschool student who is interested in
     programming, engineering, digital art, 3d modeling, urbex, mtb, skiing,
-    swimming and photography. lately i've been playing minecraft, pvz, osu!,
-    pokemon and balatro
+    swimming and photography.
   </p>
   <h2>links</h2>
   <a
@@ -114,15 +113,6 @@
         blue
       </div>
     </div>
-  </div>
-  <h2>love of my life</h2>
-  <div class="info">
-    <a
-      class="friend external"
-      href="https://lorushi.pages.dev/"
-      target="_blank"
-      rel="noopener">l0rush1<span class="arrow">/></span></a
-    >
   </div>
 </main>
 

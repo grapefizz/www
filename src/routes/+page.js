@@ -1,10 +1,10 @@
 export function load() {
   return {
     meta: {
-      title: "grapefizz",
+      title: "ari karakushi",
       description: "my website/portfolio/blog.",
-      author: "grapefizz",
-      keywords: "grapefizz, portfolio, blog, projects, about me",
+      author: "ari karakushi",
+      keywords: "ari karakushi, portfolio, blog, projects, about me",
     },
   };
 }

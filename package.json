@@ -39,7 +39,7 @@
     "unplugin-icons": "^23.0.1",
     "vite": "^7.3.6",
     "vitest": "^4.0.18",
-    "wrangler": "^4.92.0"
+    "wrangler": "^4.123.0"
   },
   "type": "module",
   "dependencies": {

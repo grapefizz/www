@@ -94,7 +94,7 @@
         --height={page.url.pathname === "/" ? "2rem" : "4rem"}
       />
     </a>
-    <a href="/"><h1>grapefizz</h1></a>
+    <a href="/"><h1>ari karakushi</h1></a>
   </div>
   <nav>
     {#each pages as { name, path }}
