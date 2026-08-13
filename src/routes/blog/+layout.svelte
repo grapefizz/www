@@ -6,7 +6,7 @@
   <link
     rel="alternate"
     type="application/rss+xml"
-    title="grapefizz.pages.dev - blog rss feed"
+    title="arikarakushi.pages.dev - blog rss feed"
     href="/blog/rss.xml"
   />
 </svelte:head>

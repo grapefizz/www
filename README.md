@@ -1,3 +1,3 @@
-my website <https://grapefizz.pages.dev>.
+my website <https://arikarakushi.pages.dev>.
 
 built with sveltekit & mdvsex, deployed on cloudflare pages.

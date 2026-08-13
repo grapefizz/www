@@ -7,7 +7,7 @@
 <svelte:head>
   <title>{title}</title>
   <meta name="description" content={description} />
-  <meta property="og:site_name" content="grapefizz.pages.dev" />
+  <meta property="og:site_name" content="arikarakushi.pages.dev" />
   <meta property="og:title" content={title} />
   <meta property="og:type" content={type} />
   <meta property="og:description" content={description} />
@@ -20,14 +20,14 @@
   {#if image}
     <meta
       property="og:image"
-      content={"https://grapefizz.pages.dev" + image.img.src}
+      content={"https://arikarakushi.pages.dev" + image.img.src}
     />
     <meta property="og:image:width" content={image.img.w} />
     <meta property="og:image:height" content={image.img.h} />
     <meta property="og:image:alt" content={title} />
     <meta
       name="twitter:image"
-      content={"https://grapefizz.pages.dev" + image.img.src}
+      content={"https://arikarakushi.pages.dev" + image.img.src}
     />
     <meta name="twitter:image:alt" content={title} />
   {/if}
