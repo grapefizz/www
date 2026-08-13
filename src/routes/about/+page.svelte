@@ -17,10 +17,7 @@
 <main>
   <h1>about</h1>
   <p>
-    hi! i'm ari. i'm a senior highschool student who is interested in
-    programming, engineering, digital art, 3d modeling, urbex, mtb, skiing,
-    swimming and photography.
-  </p>
+    hi! i'm ari. i'm a senior in high school, with experience in software engineering.<br><br> i have been learning software development for 4 years at a course called jcoders. since last year, i've also been working at a company named stardent, where i helped build a crm web app. i used sveltekit for the website part and swiftui for the app part.<br> <br> i also help out at flossk. it's an ngo which organizes tech events. i volunteer at their events and help build software projects with other people there.<br> <br> i joined a game jam called spindown, made by flossk, where i built a full game with my own level editor, using a tool called love2d. we won first place. </p>
   <h2>links</h2>
   <a
     href="https://github.com/grapefizz"
