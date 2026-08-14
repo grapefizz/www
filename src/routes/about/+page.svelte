@@ -20,7 +20,14 @@
     hi! i'm grapefizz. i'm a senior highschool student who is interested in
     programming, engineering, digital art, 3d modeling, urbex, mtb, skiing,
     swimming and photography. lately i've been playing minecraft, pvz, osu!,
-    pokemon and balatro
+    pokemon and balatro.
+    <br>
+    also a contributing member of     <a
+      class="flossk external"
+      href="https://flossk.org/"
+      target="_blank"
+      rel="noopener">flossk<span class="arrow">/></span></a
+    > since april 2026.
   </p>
   <h2>links</h2>
   <a
@@ -139,6 +146,11 @@
     font-size: 1.2rem;
     margin: 0.5rem 0;
     display: block;
+  }
+
+  a.flossk {
+    display: inline-block;
+    white-space: nowrap;
   }
 
   .info {
