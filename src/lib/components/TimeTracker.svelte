@@ -171,18 +171,18 @@
 					{:else}
 						{@const position = digitPositionFromRight(displayedCount, index)}
 						{@const previousDigit = digitFromRight(previousDigits, position)}
-						{#if previousCount && previousDigit !== character}
-							<span class="digit">
+						<span class="digit">
+							{#if previousCount && previousDigit !== character}
 								{#key `${animationVersion}-${index}`}
 									{#if previousDigit}
 										<span class="digit-value digit-outgoing">{previousDigit}</span>
 									{/if}
 									<span class="digit-value digit-incoming">{character}</span>
 								{/key}
-							</span>
-						{:else}
-							{character}
-						{/if}
+							{:else}
+								<span class="digit-value">{character}</span>
+							{/if}
+						</span>
 					{/if}
 				{/each}
 			</span>
