@@ -163,31 +163,33 @@
 
 {#if isValidDate}
 	<span class="day-tracker">
-		<span class="count" aria-label={formattedCount}>
-			<span aria-hidden="true">
-				{#each characters as character, index}
-					{#if character === ','}
-						{character}
-					{:else}
-						{@const position = digitPositionFromRight(displayedCount, index)}
-						{@const previousDigit = digitFromRight(previousDigits, position)}
-						<span class="digit">
-							{#if previousCount && previousDigit !== character}
-								{#key `${animationVersion}-${index}`}
-									{#if previousDigit}
-										<span class="digit-value digit-outgoing">{previousDigit}</span>
-									{/if}
-									<span class="digit-value digit-incoming">{character}</span>
-								{/key}
-							{:else}
-								<span class="digit-value">{character}</span>
-							{/if}
-						</span>
-					{/if}
-				{/each}
+		<span class="elapsed">
+			<span class="count" aria-label={formattedCount}>
+				<span aria-hidden="true">
+					{#each characters as character, index}
+						{#if character === ','}
+							{character}
+						{:else}
+							{@const position = digitPositionFromRight(displayedCount, index)}
+							{@const previousDigit = digitFromRight(previousDigits, position)}
+							<span class="digit">
+								{#if previousCount && previousDigit !== character}
+									{#key `${animationVersion}-${index}`}
+										{#if previousDigit}
+											<span class="digit-value digit-outgoing">{previousDigit}</span>
+										{/if}
+										<span class="digit-value digit-incoming">{character}</span>
+									{/key}
+								{:else}
+									<span class="digit-value">{character}</span>
+								{/if}
+							</span>
+						{/if}
+					{/each}
+				</span>
 			</span>
+			<span class="label">{label}</span>
 		</span>
-		<span class="label">{label}</span>
 		{#if showSince}
 			<span class="since">since <time {datetime}>{formattedDate}</time></span>
 		{/if}
@@ -200,13 +202,22 @@
 	.day-tracker {
 		display: inline-flex;
 		align-items: baseline;
+		flex-wrap: wrap;
 		gap: 0.45ch;
 		font-family: 'Space Mono', monospace;
+	}
+
+	.elapsed {
+		display: inline-flex;
+		align-items: baseline;
+		gap: 0.45ch;
+		white-space: nowrap;
 	}
 
 	.count {
 		color: var(--txt-0);
 		display: inline-block;
+		white-space: nowrap;
 	}
 
 	.digit {
@@ -249,6 +260,10 @@
 	.since,
 	.invalid {
 		color: var(--txt-2);
+	}
+
+	.since {
+		white-space: nowrap;
 	}
 
 	@media (max-width: 600px) {
