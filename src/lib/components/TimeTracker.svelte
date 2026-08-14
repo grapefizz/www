@@ -171,7 +171,7 @@
 					{:else}
 						{@const position = digitPositionFromRight(displayedCount, index)}
 						{@const previousDigit = digitFromRight(previousDigits, position)}
-						{#if previousDigit !== character}
+						{#if previousCount && previousDigit !== character}
 							<span class="digit">
 								{#key `${animationVersion}-${index}`}
 									{#if previousDigit}
