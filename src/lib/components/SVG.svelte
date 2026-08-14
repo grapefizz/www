@@ -1,26 +1,32 @@
 <script>
-  let { svg } = $props();
+	let { svg } = $props();
 
-  async function importSVG() {
-    const svgs = import.meta.glob(`/src/content/*/*/*.svg`, { query: "?raw" });
-    for (const [path, src] of Object.entries(svgs)) {
-      if (path.includes(svg)) {
-        const res = await src();
-        return res.default;
-      }
-    }
-  }
+	const svgs = import.meta.glob(`/src/content/*/*/*.svg`, {
+		import: 'default',
+		eager: true,
+		query: '?raw'
+	});
+
+	function importSVG(svg) {
+		for (const [path, src] of Object.entries(svgs)) {
+			if (path.includes(svg)) {
+				return src;
+			}
+		}
+	}
+
+	const src = $derived(svg ? importSVG(svg) : null);
 </script>
 
 <div class="svg-container">
-  {#await importSVG(svg) then src}
-    {@html src}
-  {/await}
+	{#if src}
+		{@html src}
+	{/if}
 </div>
 
 <style>
-  :global(.svg-container svg) {
-    width: 100%;
-    height: 100%;
-  }
+	:global(.svg-container svg) {
+		width: 100%;
+		height: 100%;
+	}
 </style>
