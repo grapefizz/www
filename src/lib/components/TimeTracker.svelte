@@ -127,6 +127,29 @@
 	);
 	const datetime = $derived(isValidDate ? start.toISOString().slice(0, 10) : '');
 	const formattedCount = $derived(String(count).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+	let displayedCount = $state(formattedCount);
+	let previousCount = $state('');
+	let animationVersion = $state(0);
+	const characters = $derived([...displayedCount]);
+	const previousDigits = $derived(previousCount.replace(/\D/g, ''));
+
+	function digitPositionFromRight(value, index) {
+		return value.slice(index + 1).replace(/\D/g, '').length;
+	}
+
+	function digitFromRight(value, position) {
+		return value.at(-position - 1) ?? '';
+	}
+
+	$effect(() => {
+		if (formattedCount === displayedCount) {
+			return;
+		}
+
+		previousCount = displayedCount;
+		displayedCount = formattedCount;
+		animationVersion += 1;
+	});
 
 	onMount(() => {
 		const intervalMs = selectedUnit === 'seconds' ? 1_000 : 60_000;
@@ -140,7 +163,30 @@
 
 {#if isValidDate}
 	<span class="day-tracker">
-		<span class="count">{formattedCount}</span>
+		<span class="count" aria-label={formattedCount}>
+			<span aria-hidden="true">
+				{#each characters as character, index}
+					{#if character === ','}
+						{character}
+					{:else}
+						{@const position = digitPositionFromRight(displayedCount, index)}
+						{@const previousDigit = digitFromRight(previousDigits, position)}
+						{#if previousDigit !== character}
+							<span class="digit">
+								{#key `${animationVersion}-${index}`}
+									{#if previousDigit}
+										<span class="digit-value digit-outgoing">{previousDigit}</span>
+									{/if}
+									<span class="digit-value digit-incoming">{character}</span>
+								{/key}
+							</span>
+						{:else}
+							{character}
+						{/if}
+					{/if}
+				{/each}
+			</span>
+		</span>
 		<span class="label">{label}</span>
 		{#if showSince}
 			<span class="since">since <time {datetime}>{formattedDate}</time></span>
@@ -160,6 +206,44 @@
 
 	.count {
 		color: var(--txt-0);
+		display: inline-block;
+	}
+
+	.digit {
+		display: inline-grid;
+		height: 1.35em;
+		overflow: hidden;
+		vertical-align: baseline;
+	}
+
+	.digit-value {
+		grid-area: 1 / 1;
+		line-height: 1.35;
+		will-change: transform;
+	}
+
+	.digit-outgoing {
+		animation: roll-out 300ms ease-in forwards;
+	}
+
+	.digit-incoming {
+		animation: roll-in 300ms ease-out forwards;
+	}
+
+	@keyframes roll-out {
+		to {
+			transform: translateY(-100%);
+		}
+	}
+
+	@keyframes roll-in {
+		from {
+			transform: translateY(100%);
+		}
+
+		to {
+			transform: translateY(0);
+		}
 	}
 
 	.since,
