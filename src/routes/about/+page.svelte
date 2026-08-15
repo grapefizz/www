@@ -22,8 +22,10 @@
     swimming and photography. lately i've been playing minecraft, pvz, osu!,
     pokemon and balatro.
     <br>
-    contributing member of <a class="flossk external" href="https://flossk.org" target="_blank" rel="noopener">flossk<span class="arrow">/></span></a> since april 2026.
-
+  </p>
+  <p>
+    contributing member of <a class="flossk external" href="https://flossk.org" target="_blank" rel="noopener">flossk<span class="arrow">/></span></a> since april 2026.<br>
+    member of <a class="flossk external" href="https://dc38338.org" target="_blank" rel="noopener">defcon383<span class="arrow">/></span></a> since august 2026.
   </p>
   <h2>links</h2>
   <a
