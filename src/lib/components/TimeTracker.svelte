@@ -3,6 +3,7 @@
 
 	let {
 		date,
+		time = undefined,
 		unit = 'days',
 		singular = undefined,
 		plural = undefined,
@@ -12,21 +13,56 @@
 
 	let now = $state(new Date());
 
-	function parseDate(value) {
-		if (value instanceof Date) {
-			return value;
-		}
+	function parseDate(value, timeValue) {
+		let parsed;
 
-		if (typeof value === 'string') {
+		if (value instanceof Date) {
+			parsed = new Date(value);
+		} else if (typeof value === 'string') {
 			const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
 
 			if (match) {
 				const [, year, month, day] = match;
-				return new Date(Number(year), Number(month) - 1, Number(day));
+				parsed = new Date(Number(year), Number(month) - 1, Number(day));
+			} else {
+				parsed = new Date(value);
 			}
+		} else {
+			parsed = new Date(value);
 		}
 
-		return new Date(value);
+		if (timeValue === undefined || timeValue === '') {
+			return parsed;
+		}
+
+		const timeMatch = /^(\d{1,2}):([0-5]\d)(?::([0-5]\d)(?:\.(\d{1,3}))?)?$/.exec(
+			String(timeValue)
+		);
+
+		if (!timeMatch || Number(timeMatch[1]) > 23 || Number.isNaN(parsed.getTime())) {
+			return new Date(NaN);
+		}
+
+		const [, hour, minute, second = '0', fraction = ''] = timeMatch;
+		parsed.setHours(
+			Number(hour),
+			Number(minute),
+			Number(second),
+			Number(fraction.padEnd(3, '0'))
+		);
+
+		return parsed;
+	}
+
+	function localDatetime(value, includeTime) {
+		const pad = (part) => String(part).padStart(2, '0');
+		const datePart = `${value.getFullYear()}-${pad(value.getMonth() + 1)}-${pad(value.getDate())}`;
+
+		if (!includeTime) {
+			return datePart;
+		}
+
+		return `${datePart}T${pad(value.getHours())}:${pad(value.getMinutes())}:${pad(value.getSeconds())}`;
 	}
 
 	function startOfDay(value) {
@@ -109,7 +145,7 @@
 		}
 	}
 
-	const start = $derived(parseDate(date));
+	const start = $derived(parseDate(date, time));
 	const selectedUnit = $derived(normalizeUnit(unit));
 	const isValidDate = $derived(!Number.isNaN(start.getTime()));
 	const count = $derived(isValidDate ? countElapsed(start, now, selectedUnit) : 0);
@@ -121,11 +157,14 @@
 			? new Intl.DateTimeFormat(locale, {
 					year: 'numeric',
 					month: 'long',
-					day: 'numeric'
+					day: 'numeric',
+					...(time !== undefined && time !== ''
+						? { hour: 'numeric', minute: '2-digit', second: '2-digit' }
+						: {})
 				}).format(start)
 			: ''
 	);
-	const datetime = $derived(isValidDate ? start.toISOString().slice(0, 10) : '');
+	const datetime = $derived(isValidDate ? localDatetime(start, time !== undefined && time !== '') : '');
 	const formattedCount = $derived(String(count).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
 	let displayedCount = $state(formattedCount);
 	let previousCount = $state('');
