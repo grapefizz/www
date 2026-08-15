@@ -59,7 +59,7 @@
       <TimeTracker showSince={false} date="2025-12-05" time="14:31:24" unit="days" /><br>
       <TimeTracker showSince={false} date="2025-12-05" time="14:31:24" unit="hours" /><br>
       <TimeTracker showSince={false} date="2025-12-05" time="14:31:24" unit="minutes" /><br>
-      <TimeTracker date="2025-12-05" unit="seconds" />
+      <TimeTracker showSince="date" date="2025-12-05" time="14:31:24" unit="seconds" />
   </h3>
   <p>These last <TimeTracker showSince={false} date="2025-12-05" unit="months" /> have been the most amazing time of my life</p>
   <p>Can't wait for our trip to Tirana :3</p>

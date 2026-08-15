@@ -54,15 +54,14 @@
 		return parsed;
 	}
 
-	function localDatetime(value, includeTime) {
+	function localDate(value) {
 		const pad = (part) => String(part).padStart(2, '0');
-		const datePart = `${value.getFullYear()}-${pad(value.getMonth() + 1)}-${pad(value.getDate())}`;
+		return `${value.getFullYear()}-${pad(value.getMonth() + 1)}-${pad(value.getDate())}`;
+	}
 
-		if (!includeTime) {
-			return datePart;
-		}
-
-		return `${datePart}T${pad(value.getHours())}:${pad(value.getMinutes())}:${pad(value.getSeconds())}`;
+	function localTime(value) {
+		const pad = (part) => String(part).padStart(2, '0');
+		return `${pad(value.getHours())}:${pad(value.getMinutes())}:${pad(value.getSeconds())}`;
 	}
 
 	function startOfDay(value) {
@@ -152,19 +151,48 @@
 	const singularLabel = $derived(singular ?? singularUnit(selectedUnit));
 	const pluralLabel = $derived(plural ?? selectedUnit);
 	const label = $derived(count === 1 ? singularLabel : pluralLabel);
+	const sinceMode = $derived.by(() => {
+		if (showSince === false) {
+			return 'none';
+		}
+
+		if (typeof showSince === 'string') {
+			const mode = showSince.toLowerCase();
+
+			if (mode === 'date' || mode === 'time' || mode === 'both') {
+				return mode;
+			}
+		}
+
+		return time !== undefined && time !== '' ? 'both' : 'date';
+	});
 	const formattedDate = $derived(
 		isValidDate
 			? new Intl.DateTimeFormat(locale, {
-					year: 'numeric',
-					month: 'long',
-					day: 'numeric',
-					...(time !== undefined && time !== ''
+					...(sinceMode === 'date' || sinceMode === 'both'
+						? { year: 'numeric', month: 'long', day: 'numeric' }
+						: {}),
+					...(sinceMode === 'time' || sinceMode === 'both'
 						? { hour: 'numeric', minute: '2-digit', second: '2-digit' }
 						: {})
 				}).format(start)
 			: ''
 	);
-	const datetime = $derived(isValidDate ? localDatetime(start, time !== undefined && time !== '') : '');
+	const datetime = $derived.by(() => {
+		if (!isValidDate) {
+			return '';
+		}
+
+		if (sinceMode === 'time') {
+			return localTime(start);
+		}
+
+		if (sinceMode === 'both') {
+			return `${localDate(start)}T${localTime(start)}`;
+		}
+
+		return localDate(start);
+	});
 	const formattedCount = $derived(String(count).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
 	let displayedCount = $state(formattedCount);
 	let previousCount = $state('');
@@ -229,7 +257,7 @@
 			</span>
 			<span class="label">{label}</span>
 		</span>
-		{#if showSince}
+		{#if sinceMode !== 'none'}
 			<span class="since">since <time {datetime}>{formattedDate}</time></span>
 		{/if}
 	</span>
