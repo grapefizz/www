@@ -13,6 +13,7 @@
   }
 
   function launchHearts() {
+    const colors = ["var(--blue)", "var(--purple)", "var(--pink)"];
     const burst = Array.from({ length: 110 }, () => {
       const velocityX = (Math.random() - 0.5) * 240;
       const velocityY = 140 + Math.random() * 360;
@@ -31,6 +32,7 @@
           }),
         ),
         x100: velocityX,
+        color: colors[Math.floor(Math.random() * colors.length)],
         rotation,
         size: 16 + Math.random() * 24,
         duration: 800 + Math.random() * 300,
@@ -51,7 +53,7 @@
   <h1>
     hi munchkin
     <button class="heart-button" type="button" onclick={launchHearts} aria-label="Celebrate with hearts">
-      <HeartIcon class="icon" style="color: var(--red)" />
+      <HeartIcon class="icon" style="color: var(--pink)" />
     </button>
   </h1>
   <h3>
@@ -69,7 +71,7 @@
   {#each hearts as heart (heart.id)}
     <span
       class="confetti-heart"
-      style={`--x20: ${heart.x20}; --y20: ${heart.y20}; --r20: ${heart.r20}; --x40: ${heart.x40}; --y40: ${heart.y40}; --r40: ${heart.r40}; --x60: ${heart.x60}; --y60: ${heart.y60}; --r60: ${heart.r60}; --x80: ${heart.x80}; --y80: ${heart.y80}; --r80: ${heart.r80}; --x100: ${heart.x100}; --rotation: ${heart.rotation}; --size: ${heart.size}; --duration: ${heart.duration}; --delay: ${heart.delay}`}
+      style={`--x20: ${heart.x20}; --y20: ${heart.y20}; --r20: ${heart.r20}; --x40: ${heart.x40}; --y40: ${heart.y40}; --r40: ${heart.r40}; --x60: ${heart.x60}; --y60: ${heart.y60}; --r60: ${heart.r60}; --x80: ${heart.x80}; --y80: ${heart.y80}; --r80: ${heart.r80}; --x100: ${heart.x100}; --rotation: ${heart.rotation}; --size: ${heart.size}; --duration: ${heart.duration}; --delay: ${heart.delay}; --heart-color: ${heart.color}`}
       >♥</span
     >
   {/each}
@@ -110,7 +112,7 @@
     position: absolute;
     bottom: 0;
     left: 50%;
-    color: var(--red);
+    color: var(--heart-color);
     font-size: calc(var(--size) * 1px);
     line-height: 1;
     opacity: 0;
