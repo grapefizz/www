@@ -64,8 +64,8 @@
 		return `${pad(value.getHours())}:${pad(value.getMinutes())}:${pad(value.getSeconds())}`;
 	}
 
-	function startOfDay(value) {
-		return new Date(value.getFullYear(), value.getMonth(), value.getDate());
+	function calendarDayNumber(value) {
+		return Date.UTC(value.getFullYear(), value.getMonth(), value.getDate()) / 86_400_000;
 	}
 
 	function normalizeUnit(value) {
@@ -133,14 +133,14 @@
 			case 'hours':
 				return Math.floor(elapsed / 3_600_000);
 			case 'weeks':
-				return Math.floor((startOfDay(to) - startOfDay(from)) / 604_800_000);
+				return Math.floor((calendarDayNumber(to) - calendarDayNumber(from)) / 7);
 			case 'months':
 				return countFullMonths(from, to);
 			case 'years':
 				return Math.floor(countFullMonths(from, to) / 12);
 			case 'days':
 			default:
-				return Math.floor((startOfDay(to) - startOfDay(from)) / 86_400_000);
+				return calendarDayNumber(to) - calendarDayNumber(from);
 		}
 	}
 
