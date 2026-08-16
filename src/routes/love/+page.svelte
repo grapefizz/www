@@ -58,6 +58,7 @@
   </h1>
   <h3>
       <TimeTracker showSince={false} date="2025-12-05" time="14:31:24" unit="months" /><br>
+      <TimeTracker showSince={false} date="2025-12-05" time="14:31:24" unit="weeks" /><br>
       <TimeTracker showSince={false} date="2025-12-05" time="14:31:24" unit="days" /><br>
       <TimeTracker showSince={false} date="2025-12-05" time="14:31:24" unit="hours" /><br>
       <TimeTracker showSince={false} date="2025-12-05" time="14:31:24" unit="minutes" /><br>
