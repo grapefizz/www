@@ -13,5 +13,17 @@
   </head>
   <body data-sveltekit-preload-data="hover">
     <div style="display: contents">%sveltekit.body%</div>
+    <script>
+      const taglineElement = document.querySelector("[data-random-tagline]");
+
+      if (taglineElement instanceof HTMLElement) {
+        const taglines = JSON.parse(taglineElement.dataset.taglines ?? "[]");
+
+        if (taglines.length > 0) {
+          taglineElement.textContent =
+            taglines[Math.floor(Math.random() * taglines.length)];
+        }
+      }
+    </script>
   </body>
 </html>

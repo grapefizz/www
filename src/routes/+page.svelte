@@ -10,10 +10,15 @@
 
   let svgContainer;
   let animationReady = false;
-  let tagline = taglines[0];
+  let tagline =
+    typeof document === "undefined"
+      ? ""
+      : (document.querySelector("[data-random-tagline]")?.textContent ?? "");
 
   onMount(() => {
-    tagline = taglines[Math.floor(Math.random() * taglines.length)];
+    if (!tagline) {
+      tagline = taglines[Math.floor(Math.random() * taglines.length)];
+    }
     requestAnimationFrame(() => (animationReady = true));
   });
 </script>
@@ -133,7 +138,11 @@
         </svg>
       </div>
     </div>
-    <p><i>{tagline}</i></p>
+    <p class="tagline">
+      <i data-random-tagline data-taglines={JSON.stringify(taglines)}
+        >{tagline}</i
+      >
+    </p>
     <nav>
       <a class="nav" href="/about"
         ><span class="arrow">-></span><span class="slash">/</span>about</a
@@ -167,6 +176,9 @@
     display: flex;
     align-items: center;
     gap: 2rem;
+  }
+  .tagline {
+    min-height: 1lh;
   }
   .svg-container {
     width: 10rem;
