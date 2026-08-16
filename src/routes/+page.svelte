@@ -1,8 +1,19 @@
 <script>
   import { onMount } from "svelte";
+
+  const taglines = [
+    "beep boop beep boop",
+    "pvz modder and speedrunner",
+    "apple fanboy",
+    "compiler broke again",
+  ];
+
   let svgContainer;
   let animationReady = false;
+  let tagline = taglines[0];
+
   onMount(() => {
+    tagline = taglines[Math.floor(Math.random() * taglines.length)];
     requestAnimationFrame(() => (animationReady = true));
   });
 </script>
@@ -122,7 +133,7 @@
         </svg>
       </div>
     </div>
-    <p><i>beep boop beep boop</i></p>
+    <p><i>{tagline}</i></p>
     <nav>
       <a class="nav" href="/about"
         ><span class="arrow">-></span><span class="slash">/</span>about</a
