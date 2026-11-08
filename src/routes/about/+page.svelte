@@ -5,7 +5,7 @@
 
   let content = {
     languages: {
-      general: ["py", "js", "rust", "zig", "java", "swift", "c++", "c", "lua"],
+      general: ["rust", "swift", "ts", "zig", "java", "py", "c++", "c", "lua"],
     },
     tech: {
       frameworks: ["svelte", "astro", "actix", "leptos", "flask", "openresty"],
@@ -124,9 +124,9 @@
   <div class="info">
     <a
       class="friend external"
-      href="https://lorushi.pages.dev/"
+      href="https://msfizz.pages.dev/"
       target="_blank"
-      rel="noopener">l0rush1<span class="arrow">/></span></a
+      rel="noopener">msfizz<span class="arrow">/></span></a
     >
   </div>
 </main>

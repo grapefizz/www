@@ -14,6 +14,7 @@ import PlantIcon from "~icons/ph/potted-plant";
 import PuzzleIcon from "~icons/ph/puzzle-piece";
 import StarFourIcon from "~icons/ph/star-four";
 import BowlIcon from "~icons/ph/bowl-steam";
+import CoinIcon from "~icons/ph/coin"
 
 export const iconMap = {
   paper: FileIcon,
@@ -32,4 +33,5 @@ export const iconMap = {
   puzzle: PuzzleIcon,
   starfour: StarFourIcon,
   bowl: BowlIcon,
+  coin: CoinIcon,
 };
